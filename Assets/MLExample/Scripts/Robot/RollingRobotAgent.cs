@@ -84,6 +84,7 @@ public class RollingRobotAgent : Agent
         base.AgentReset();
         CurrentArea.ResetArea();
         CurrentArea.GoalRedius = 6f;
+        AddReward(-1);
     }
 
 
@@ -135,7 +136,7 @@ public class RollingRobotAgent : Agent
         if (other.CompareTag("CheckPoint"))
         {
             other.GetComponent<BoxCollider>().enabled = false;
-            AddReward(0.05f);
+            AddReward(1f / maxStep);
         }
     }
 
