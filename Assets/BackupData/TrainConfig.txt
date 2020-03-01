@@ -1,0 +1,23 @@
+RobotLearningBrain:
+	use_curiosity: true
+	summary_freq: 50000
+	time_horizon: 128
+	batch_size: 128
+	buffer_size: 2048
+	hidden_units: 256
+	beta: 1.0e-2
+	max_steps: 1.0e6
+
+
+json
+
+{
+	"mesure": "reward",
+	"tresholds": [-0.1, 0.7, 1.7, 1.7, 1.7, 2.7, 2.7],
+	"min_lesson_lenght": 80,
+	"signal_smoothing": true,
+	"parameters": {
+		"obstacle_Persantage": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5],
+		"goal_Redius": [6.0, 5.0, 4.0, 3.0, 2.0, 1.0, 0.5, 0.2]
+	}
+}
