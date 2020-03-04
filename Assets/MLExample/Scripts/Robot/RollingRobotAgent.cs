@@ -83,7 +83,7 @@ public class RollingRobotAgent : Agent
     {
         base.AgentReset();
         CurrentArea.ResetArea();
-        CurrentArea.GoalRedius = 6f;
+        CurrentArea.GoalRedius = 2f;
         AddReward(-1);
     }
 
