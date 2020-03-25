@@ -23,8 +23,8 @@ public class RollingRobotAgent : Agent
     public override void AgentAction(float[] vectorAction)
     {
 
-        //if (!RollingRobotMovement.canMove)
-        //    return;
+        if (!RollingRobotMovement.canMove)
+            return;
 
         base.AgentAction(vectorAction);
         var dirGo = 0f;
@@ -100,19 +100,6 @@ public class RollingRobotAgent : Agent
 
         //Direction Agent is faceging
         AddVectorObs(transform.forward);
-
-        //Ray Perception (sight)
-        //========================
-        //Ray Distance: Max Distance a ray can reach
-        //Ray Angles:  Angles to Raycast (0 is right, 90 is forward, 180 is left)
-        //Detectable Objects: List of tags wicht corresponds to object types agent can see
-        //StartOffset: Starting Height offset of ray from center of agent
-        //End Offset: End Height offset of ray from center of agent
-
-        //float rayDistance = 20f;
-        //float[] rayAngles = { 30f, 60f, 90, 120f, 150f };
-        //string[] detectableObjects = { "Obstacle", "Goal"};
-        //AddVectorObs(RayPerceptionSensor.PerceiveStatic(rayDistance, rayAngles, detectableObjects, 0f, 0f, 0f, transform, RayPerceptionSensor.CastType.Cast3D, ));
     }
 
     private void Start()

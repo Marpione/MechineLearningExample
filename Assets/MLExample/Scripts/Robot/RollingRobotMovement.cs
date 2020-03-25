@@ -7,7 +7,7 @@ public class RollingRobotMovement : MonoBehaviour
     public float MoveSpeed;
 
     private Animator animator;
-    public Animator Animator { get { return (animator == null) ? animator = GetComponent<Animator>() : animator; } }
+    public Animator Animator { get { return (animator == null) ? animator = GetComponentInChildren<Animator>() : animator; } }
 
     private Rigidbody rigidbody;
     private Rigidbody Rigidbody { get { return (rigidbody == null) ? rigidbody = GetComponent<Rigidbody>() : rigidbody; } }
@@ -28,11 +28,11 @@ public class RollingRobotMovement : MonoBehaviour
 
     public void MoveRobot(float value)
     {
-        //if (!canMove)
-        //    return;
+        if (!canMove)
+            return;
 
         Rigidbody.velocity = transform.forward * MoveSpeed * value;
-        //Animator.SetFloat("VerticalSpeed", value);
+        Animator.SetFloat("VerticalSpeed", value);
     }
 
     public void TurnRobot(float value)
@@ -41,6 +41,6 @@ public class RollingRobotMovement : MonoBehaviour
             return;
 
         transform.Rotate(Vector3.up * 5 * value);
-        //Animator.SetFloat("HorizantolSpeed", value);
+        Animator.SetFloat("HorizantolSpeed", value);
     }
 }
